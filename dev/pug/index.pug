@@ -1,0 +1,78 @@
+include set.pug
+
+doctype HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+html
+  head
+    //- Для отладки в браузере
+    meta(charset='UTF-8')
+    //- Для отладки под outlook
+    style.
+      * {
+        line-height: 141% !important;
+      }
+  body
+    +tableBody()
+      +tableWrapper()
+        tr: td: +tableRow()
+          td: +img('4326ef6d-5f9d-4af3-b2f0-8fb6eea4d4b9.jpg', 52, 44)
+          td: +linkImg('ae3510e4-63bf-4e4c-9bfa-e03a55ff6c77.jpg', 'http://ekt.by', 52, 98, 'EKT Инструмент Крепеж Оборудование')
+          td: +img('ae6bfdcd-5f96-4d20-ba14-f567c1d4f40d.jpg', 52, 458)
+        tr: td: +tableRow()
+          td: +img('767a8964-bec8-4155-bcc7-4792a5037ce4.jpg', 184)
+        tr: td: +tableRow()
+          td: +img('39a85931-5043-4365-8c90-fc7298c3557f.jpg', 21, 167)
+          td: +linkImg('8f6b4642-8342-4314-8cd5-b77b542ed771.jpg', 'http://ekt.by/catalog/elektroinstrument_i_osnastka_k_elektroinstrumentu/elektroinstrument/otreznye_ugloshlifovalnye_mashiny_ushm_0/bolgarka_ushm_Hitachi/h-051421-mashina_ugloshlifovalnaya_ushm_disk_125x222mm_1320vtbezshchetoch_dvigatel_2kg_g13ve_hitachi_sht/', 21, 66, 'Подробнее')
+          td: +img('be0ea377-9581-494c-a4e1-cc484379a79b.jpg', 21, 367)
+        tr: td: +tableRow()
+          td: +img('04ac24e1-7f45-436d-a757-66dcfd4d91f2.jpg', 321)
+        tr: td: +tableRow()
+          td: +img('22ade980-5e99-4cb6-bd6d-d177fe4403a7.jpg', 20, 267)
+          td: +linkImg('096dfd97-b105-4931-b7c7-0395acd17e12.jpg', 'http://ekt.by/catalog/elektroinstrument_i_osnastka_k_elektroinstrumentu/elektroinstrument/otreznye_ugloshlifovalnye_mashiny_ushm_0/bolgarka_ushm_Hitachi/h-051421-mashina_ugloshlifovalnaya_ushm_disk_125x222mm_1320vtbezshchetoch_dvigatel_2kg_g13ve_hitachi_sht/', 20, 67, 'Подробнее')
+          td: +img('47fcd178-5a34-4112-b8c7-4de694f6407e.jpg', 20, 266)
+        tr: td: +tableRow()
+          td: +img('ec7c39ba-aeda-41ed-bf66-bb9424764cb1.jpg', 155)
+        tr: td: +tableRow()
+          td: +img('693bb7ec-b700-400c-870b-acaa8e0634de.jpg', 21, 44)
+          td: +linkImg('d90b2e11-0ca6-41b6-b5dd-cbbbb018d6a9.jpg', 'http://ekt.by/catalog/elektroinstrument_i_osnastka_k_elektroinstrumentu/elektroinstrument/otreznye_ugloshlifovalnye_mashiny_ushm_0/bolgarka_ushm_Hitachi/h-051421-mashina_ugloshlifovalnaya_ushm_disk_125x222mm_1320vtbezshchetoch_dvigatel_2kg_g13ve_hitachi_sht/', 21, 66, 'Подробнее')
+          td: +img('92d45dcd-0e38-41cb-bf5b-09320be0915e.jpg', 21, 490)
+        tr: td: +tableRow()
+          td: +img('0cd98b2a-aa48-4f58-b086-edd0ec61915c.jpg', 35)
+        tr: td(style='padding: 20px'): +tableRow()
+          td(style='padding: 0 31px 0 24px; border-right: 2px solid #dadada;'): +tableRow()
+            td(align='left')
+              +tableRow()
+                td(style='padding: 0 0 10px 0'): +fontWrapper()
+                  | ЗАО “ЕКТ Групп”
+              +tableRow()
+                td: +fontWrapper('8pt')
+                  | г. Минск, ул. Будславская, 29
+                  br
+                  | тел.&nbsp;
+                  +linkPhone('+375172697474')
+                    | +375 (17) 269-74-74
+                  br
+                  +link('http://ekt.by')
+                    | www.ekt.by
+          td(style='padding: 0 27px; border-right: 2px solid #dadada;'): +tableRow()
+            td(align='left')
+              +tableRow()
+                td(style='padding: 0 0 10px 0'): +fontWrapper()
+                  | Сервисный центр:
+              +tableRow()
+                td: +fontWrapper('8pt')
+                  | 20053, г. Минск
+                  br
+                  | ул. Будславская, 29
+                  br
+                  | тел.&nbsp;
+                  +linkPhone('+375172697474')
+                    | +375 (17) 269-74-74
+          td(style='padding: 0 24px 0 33px'): +tableRow()
+            td: +img('e8e55396-2630-40e3-b4fa-e0f5c68921f5.jpg', 35, 122, 'Hitachi Inspire the Next')
+        tr: td
+          +tableRowCell('center', mainBgColor)
+            +fontWrapper('8pt')
+              | Если вы хотите отписаться от данной рассылки, нажмите&nbsp;
+              +link('*|UNSUB|*')
+                | сюда
+              | .

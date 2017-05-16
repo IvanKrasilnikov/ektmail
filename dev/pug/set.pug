@@ -1,0 +1,230 @@
+//-*** VARIABLES ***************************************************************
+- var imgDir = 'https://gallery.mailchimp.com/b1a651456718f73c52378940b/images/';
+- var mainBgColor = '#e4e4e4';
+- var defaultBgColor = '#ececec';
+- var defaultWidth = 600;
+- var defaultFontFamily = 'Arial, Helvetica, sans-serif';
+- var defaultFontSize = '10pt';
+- var defaultFontColor = '#6a6a6a';
+- var defaultLink = '#';
+
+//-*** LAYOUT ******************************************************************
+
+//-**
+//-* Главный контейнер на всю ширину
+//-*
+//-* @param [bgColor=mainBgColor]
+//-*
+mixin tableBody(bgColor)
+  table(
+    cellpadding=5
+    cellspacing=0
+    border=0
+    height='100%'
+    width='98%'
+    bgcolor=bgColor ? bgColor : mainBgColor
+    style={
+      'border-collapse': 'collapse',
+      margin: 0,
+      padding: 0
+    }
+  ): tr: td(
+    align='center'
+    valign='top'
+  )
+    block
+    
+//-**  
+//-* Основное содержимое/wrapper
+//-*
+//-* @param [bgColor=defaultBgColor]
+//-*
+mixin tableWrapper(bgColor)
+  table(
+    cellpadding=0
+    cellspacing=0
+    border=0
+    align='center'
+    width=defaultWidth
+    bgcolor=bgColor ? bgColor : defaultBgColor
+    style={
+      'border-collapse': 'collapse',
+      margin: 0,
+      padding: 0
+    }
+  )
+    block
+      
+//-**
+//-* Новый ряд содержимого c одной ячейкой на всю ширину
+//-*
+//-* @param [align=left]
+//-* @param [bgColor=defaultBgColor]
+//-* @param [padding=5]
+//-* @param [height] - для создания пустого ряда с указанной высотой
+//-*
+mixin tableRowCell(align, bgColor, padding, height)
+  table(
+    cellpadding=padding ? padding : 5
+    cellspacing=0
+    border=0
+    height=height ? height : false
+    width=defaultWidth
+    bgcolor=bgColor ? bgColor : defaultBgColor
+    style={
+      'border-collapse': 'collapse',
+      margin: 0,
+      padding: 0
+    }
+  ): tr: td(
+    width=defaultWidth
+    align=align ? align : 'left'
+  )
+    block
+    
+//-**  
+//-* Новый ряд содержимого без указания ячеек
+//-*
+//-* @param [bgColor=defaultBgColor]
+//-* @param [padding=0]
+//-* @param [attributes] - дополнительные атрибуты
+//-*
+mixin tableRow(bgColor, padding)
+  table(
+    cellpadding=padding ? padding : 0
+    cellspacing=0
+    border=0
+    bgcolor=bgColor ? bgColor : defaultBgColor
+    style={
+      'border-collapse': 'collapse',
+      margin: 0,
+      padding: 0
+    }
+  )&attributes(attributes): tr
+    block
+      
+//-*** LINKS *******************************************************************
+  
+//-**
+//-* Ссылка текстовая
+//-*
+//-* @param [href=defaultLink]
+//-* @param [color=defaultFontColor]
+//-* @param [textDecoration=underline]
+//-*
+mixin link(href, color, textDecoration)
+  a(
+    href=href ? href : defaultLink
+    target='_blank'
+    style={
+      color: color ? color : defaultFontColor,
+      'text-decoration': textDecoration ? textDecoration : 'underline'
+    }
+  )
+    block
+      
+//-**
+//-* Ссылка на почту
+//-*
+//-* @param [href=defaultLink]
+//-* @param [color=defaultFontColor]
+//-* @param [textDecoration=underline]
+//-*
+mixin linkMail(href, color, textDecoration)
+  a(
+    href=href ? `mailto:${href}` : `mailto:${defaultLink}`
+    target='_blank'
+    style={
+      color: color ? color : defaultFontColor,
+      'text-decoration': textDecoration ? textDecoration : 'underline'
+    }
+  )
+    block
+      
+//-**
+//-* Ссылка на телефон
+//-*
+//-* @param [tel=+375XXXXXXXXX]
+//-* @param [color=defaultFontColor]
+//-* @param [textDecoration=underline]
+//-*
+mixin linkPhone(tel, color, textDecoration)
+  a(
+    href=tel ? `tel:${tel}` : 'tel:+375XXXXXXXXX'
+    value=tel ? tel : '+375XXXXXXXXX'
+    target='_blank'
+    style={
+      color: color ? color : defaultFontColor,
+      'text-decoration': textDecoration ? textDecoration : 'underline'
+    }
+  )
+    block
+      
+//-**
+//-* Ссылка по изображению
+//-*
+//-* @param src
+//-* @param [href=defaultLink]
+//-* @param height
+//-* @param [width=defaultWidth]
+//-* @param [alt='']
+//-*
+mixin linkImg(src, href, height, width, alt)
+  a(
+    href=href ? href : defaultLink
+    target='_blank'
+    border=0
+    style={
+      'text-decoration': 'none'
+    }
+  ): img(
+    src=`${imgDir}${src}`
+    alt=alt ? alt : ''
+    width=width ? width : defaultWidth
+    height=height
+    border=0
+    style='display: block'
+  )
+  block
+    
+//-*** IMG ********************************************************************
+  
+//-**
+//-* Изображение
+//-*
+//-* @param src
+//-* @param height
+//-* @param [width=defaultWidth]
+//-* @param [alt='']
+//-*
+mixin img(src, height, width, alt)
+  img(
+    src=`${imgDir}${src}`
+    alt=alt ? alt : ''
+    width=width ? width : defaultWidth
+    height=height
+    border=0
+    style={
+      'display': 'block'
+    }
+  )
+
+//-*** FONT ********************************************************************
+  
+//-**
+//-* Блок для оформления текста
+//-*
+//-* @param [size=defaultFontSize]
+//-* @param [color=defaultFontColor]
+//-* @param [family=defaultFontFamily]
+//-*
+mixin fontWrapper(size, color, family)
+  div(
+    style={
+      'font-family': family ? family : defaultFontFamily,
+      'font-size': size ? size : defaultFontSize,
+      color: color ? color : defaultFontColor,
+      'line-height': '1em'
+    }
+  )
+    block
